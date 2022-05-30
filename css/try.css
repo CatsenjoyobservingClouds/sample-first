@@ -1,0 +1,126 @@
+* {
+    background: #8f6e84;
+    font-family: monospace;
+}
+
+h1 {
+    text-align: center;
+    font-size: 300%;
+}
+
+#dragon {
+    color: #b5ebb2;
+}
+
+#end {
+    text-align: right;
+}
+
+details {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+summary {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #A790A5;
+}
+
+#header {
+    /*header and footer usually the same style*/
+    background: #B7C8B5;
+    background: -webkit-linear-gradient(to right, #b3e8ad, #f8badc);
+    background: linear-gradient(to right, #b3e8ad, #f8badc);
+    background-size: 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+}
+
+p {
+    /* can put more with commas*/
+
+    background-color: #B7C8B5;
+    color: #6D0B65;
+
+    /* better use sans-serif clean fonts*/
+    font-family: Geneva, Verdana, Tahoma, sans-serif;
+    /*alternatives for different browsers*/
+    font-weight: 500;
+    font-style: normal;
+    font-variant: small-caps;
+    font-size: 110%;
+    /*percentages are the best*/
+
+    text-align: justify;
+    line-height: 150%;
+    /*space between lines*/
+
+    overflow: auto;
+}
+
+span {
+    display: inline-block;
+    /*can change width and height; don't require whole row (several in one row is possible)*/
+}
+
+figure {
+    float: right;
+}
+
+hr {
+    clear: both;
+}
+
+#special {
+    border: solid #addaa8;
+    /* style is mandatory*/
+    border-width: 2px 4px;
+    padding: 5px;
+}
+
+/* table, table cell display*/
+
+.horizontaly_centered {
+    /*by default not float, display block(div)*/
+    margin: auto;
+    width: 11%;
+    background-color: #c5efcf;
+    text-align: center;
+}
+
+.box-sizing {
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+.content-boxdefault {
+    box-sizing: content-box;
+    border: dotted;
+    display: inline-block;
+    margin: 10px;
+    margin-right: 20px;
+    padding: 4px 1px;
+    width: 20%;
+
+    text-align: center;
+}
+
+.border-box {
+    /* width in %, height in px is alright*/
+    box-sizing: border-box;
+    display: inline-block;
+
+    margin: 10px;
+    margin-left: 20px;
+
+    border: dotted;
+    padding: 4px 1px;
+    width: 20%;
+    /*20% from .box-sizing width=width+border+padding*/
+
+    text-align: center;
+}

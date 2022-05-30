@@ -1,0 +1,48 @@
+<!DOCTYPE html>   <!--print ! and press Tab-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Website</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header>
+    <!--Navigation bar section-->   <!-- Ctrl / for a comment -->
+    <nav class="navbar">   <!-- nav.navbar Tab (. before class name)-->
+        <div class="navbar__container">   <!-- .navbar__container Tab (not specified before dot = makes div by default)-->
+            <a href="#home" id="navbar__logo">MAGIC</a>   <!-- a#navbar__logo Tab (for id write #)-->
+            <div class="navbar__toggle" id="mobile-menu">   <!-- .navbar_toggle#mobile-menu Tab-->
+                <span class="bar"></span>  <!-- Shift Alt downarrow for copying down current row-->
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="#home" class="navbar__links" id="home-page">Be at home</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#about" class="navbar__links" id="about-page">Treats and tricks</a>
+                </li>
+                <li class="navbar__item">
+                    <a href="#services" class="navbar__links" id="service-page">Ask for advice</a>
+                </li>
+                <li class="navbar__btn">
+                    <a href="#sign-up" class="button" id="signup">Enjoy</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+    <div class="hero" id="home">
+        <div class="hero__container">
+            <h1 class="hero__heading">Choose your <span>type of magic</span></h1>
+            <p class="hero__description">Unlimited Possibilities</p>
+            <button class="main__btn"><a href="#">Explore</a></button>
+        </div>
+    </div>
+    <script src ="../js/app.js"></script>
+</body>
+</html>
