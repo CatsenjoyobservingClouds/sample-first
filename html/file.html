@@ -16,17 +16,22 @@
             background: -webkit-linear-gradient(360deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
             filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#42047E", endColorstr="#07F49E", GradientType=1);
 
+            background-size: auto auto;
+            background-clip: border-box;
+            background-size: 200% auto;
+            color: #fff;
             background-clip: text;
-            text-fill-color: transparent;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .beauty {
             animation: textclip 2s linear infinite;
             display: inline-block;
         }
+
         @keyframes textclip {
-             to {
+            to {
                 background-position: 200% center;
             }
         }
@@ -35,7 +40,7 @@
 
 <body style="background-color: #000000;">
     <header style="align-items: center; display: flex; justify-content: center; height: 100%">
-        <h1 class="beauty" style="text-align: center; font-size: 3.5vw; font-family: 'Philosopher', sans-serif;">
+        <h1 class="beauty" style="text-align: center; font-size: 4vw; font-family: 'Philosopher', sans-serif; line-height: 150%;">
             Привіт, сайте! Я Поліна.
             <br />
             Я люблю свою сім'ю.
