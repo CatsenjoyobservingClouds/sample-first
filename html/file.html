@@ -16,27 +16,68 @@
         body {
             margin: 0;
             height: 100%;
+            background-color: #000000;
+            user-select: none;
+            /* supported by Chrome and Opera */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+        }
+
+        header {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+        }
+
+        iframe {
+            width: 50%;
+            height: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        img {
+            width: 50%;
+            height: 50%;
+            display: inline-block;
         }
 
         h1 {
+            text-align: center;
+            font-size: 5vw;
+            font-family: 'Philosopher', sans-serif;
+            line-height: 150%;
+
             background: hsla(360deg, 270, 94%, 25%, 1);
-            background: linear-gradient(360deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
-            background: -moz-linear-gradient(360deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
-            background: -webkit-linear-gradient(360deg, hsla(270, 94%, 25%, 1) 0%, hsla(158, 94%, 49%, 1) 100%);
+            background: linear-gradient(360deg, #40047c 10%, #07f29c 43%, #07f29c 57%, #40047c 90%);
+            background: -moz-linear-gradient(360deg, #40047c 10%, #07f29c 43%, #07f29c 57%, #40047c 90%);
+            background: -webkit-linear-gradient(360deg, #40047c 10%, #07f29c 43%, #07f29c 57%, #40047c 90%);
             filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#42047E", endColorstr="#07F49E", GradientType=1);
 
-            background-size: auto auto;
-            background-clip: border-box;
-            background-size: 200% auto;
-            color: #fff;
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .beauty {
-            animation: textclip 2s linear infinite;
-            display: inline-block;
+        #beauty {
+            background-size: 200% auto;
+            animation: textclip 5s linear infinite;
+        }
+
+        .below-text {
+            color: #FFFFFF;
+            font-size: 1.5vw;
+            font-style: italic;
+            font-family: monospace;
+            white-space: break-spaces;
+            animation: rainbow 15s infinite paused;
         }
 
         @keyframes textclip {
@@ -44,18 +85,118 @@
                 background-position: 200% center;
             }
         }
+
+        @keyframes rainbow {
+            10% {
+                color: rgb(255, 0, 17)
+            }
+
+            25% {
+                color: rgb(255, 162, 0)
+            }
+
+            40% {
+                color: rgb(229, 255, 0)
+            }
+
+            50% {
+                color: rgb(0, 255, 42)
+            }
+
+            60% {
+                color: rgb(0, 242, 255)
+            }
+
+            75% {
+                color: rgb(55, 0, 255)
+            }
+
+            90% {
+                color: rgb(255, 107, 225)
+            }
+        }
     </style>
+    <script type="text/javascript">
+        let timeout;
+        let images = []
+        let mouseX, mouseY;
+
+        function getCoordinates(event) {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+        }
+
+        function littleDialog() {
+            timeout = setTimeout(() => {
+                let info = prompt("Tell me smth fun..");
+                if (info == null || info == "") {
+                    clearTimeout(timeout);
+                    return;
+                }
+                const infoElement = document.createElement("p");
+                infoElement.className = "below-text";
+                infoElement.textContent = info + " ";
+                //infoElement.style.cssText += "color: red;";
+                document.getElementById("below-text").appendChild(infoElement);
+            }, 2000);
+        }
+
+        document.addEventListener('keydown', (event) => {
+            let name = event.key;
+            if (name === "c") {
+                let chosen = document.elementFromPoint(mouseX, mouseY);
+                if (chosen !== undefined && chosen.className === "below-text") {
+                    chosen.style.animationPlayState = "running";
+                }
+
+                // if(infoElement === undefined) return;
+                // infoElement.style.animationPlayState = "running";
+
+                // document.querySelectorAll(".below-text").forEach((element) => {
+                //     element.style.animationPlayState = "running";
+                // })
+                // let color = infoElement.style.getPropertyValue("color").slice(4, -1).split(", ");
+                // color.forEach((value, index) => {
+                //     color[index] = Number(value);
+                // })
+                // infoElement.style.setProperty('color', 'rgb(' + color[0] + ', ' + color[1] + ', ' + color[2] + ')');
+                //infoElement.style.color = `rgb(${color[0]}, ${color[1]}, ${color[2]})`;
+            }
+        })
+
+        document.addEventListener('keyup', (event) => {
+            let name = event.key;
+            if (name === "c" || name === "C") {
+                document.querySelectorAll(".below-text").forEach((element) => {
+                    element.style.animationPlayState = "paused";
+                })
+            } else if (name === "i") {
+                let iframe = document.createElement("iframe");
+                iframe.src = "file.html";
+                iframe.title = "Current page";
+                document.body.appendChild(iframe);
+                //document.body.innerHTML += "<iframe src='file.html' title='Current page'></iframe>";
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                }, 60000)
+            } else if (name == "p") {
+
+            }
+        })
+
+    </script>
 </head>
 
-<body style="background-color: #000000;">
-    <header style="align-items: center; display: flex; justify-content: center; height: 100%">
-        <h1 class="beauty"
-            style="text-align: center; font-size: 4vw; font-family: 'Philosopher', sans-serif; line-height: 150%;">
-            Привіт, сайте! Мене звати <a id="link" href="../images/capybara.jpg" target="_blank">Поліна</a>.
+<body onmouseover="getCoordinates(event)">
+    <header>
+        <h1 id="beauty">
+            Привіт, <a onmouseover="littleDialog()" onfocus="littleDialog()" onmouseout="clearTimeout(timeout)"
+                onblur="clearTimeout(timeout)">сайте</a>! Мене звати <a href="../images/capybara.jpg">Поліна</a>.
             <br />
             Я люблю свою сім'ю.
         </h1>
     </header>
+    <div id="below-text"></div>
 </body>
 
 </html>
